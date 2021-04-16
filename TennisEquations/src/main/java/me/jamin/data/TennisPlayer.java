@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-public class TennisPlayer implements CsvSerialisable {
+public class TennisPlayer {
 
     public TennisPlayer(String name, int matches, int aces, int doubleFaults, float serveSuccessRate, float firstServeWon, float secondServeWon, float firstReturnWon, float secondReturnWon, float breakPointsSaved, float servicePointsWon, float returnPointsWon, float breakPointsConverted, float returnGamesWon, float tournamentScore) {
         this.name = name;
@@ -51,14 +51,8 @@ public class TennisPlayer implements CsvSerialisable {
     @Setter
     public TennisVariables variables;
 
-//    public String getAsCsv() {
-//        return name + "," + matches + "," + aces + "," + doubleFaults + "," + serveSuccessRate + "," + firstServeWon + "," + secondServeWon + "," +
-//                firstReturnWon + "," + secondReturnWon + "," + breakPointsSaved + "," + servicePointsWon + "," + returnPointsWon + "," + breakPointsConverted + "," + returnGamesWon +
-//                "," + tournamentScore + "," + variables.getRankingScore();
-//    }
-
     public String getAsCsv() {
-        return name + "," + variables.getDiminishingPercentage() + "," + variables.getBreakPointConversion() + "," + variables.getServeSuccessRate() + "," + variables.getReturnSuccessRate() + "," + variables.getTournamentScore() + "," + variables.getRankingScore();
+        return name + "," + firstServeWon + "," + secondServeWon + "," + servicePointsWon + "," + returnPointsWon + "," + breakPointsConverted + "," + tournamentScore + "," + variables.getRankingScore();
     }
 
 }
